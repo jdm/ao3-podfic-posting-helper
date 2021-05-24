@@ -2,16 +2,22 @@
     "name": "AO3 Podfic Posting Helper",
     "description": "Autofill metadata to match a work you were inspired by",
     "version": "0.0.0.6",
-    "manifest_version": 3,
+    "manifest_version": 2,
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "ao3-podfic-helper@github.com"
+        }
+    },
     "background": {
-        "service_worker": "background.js"
+        "scripts": ["background.js"]
     },
     "permissions": [
         "storage",
+        "tabs",
         "activeTab",
-        "scripting"
+        "*://archiveofourown.org/*"
     ],
-    "action": {
+    "browser_action": {
         "default_popup": "popup.html",
         "default_icon": {
             "16": "/icons/icon-16.png",
@@ -26,5 +32,7 @@
         "48": "/icons/icon-48.png",
         "128": "/icons/icon-128.png"
     },
-    "options_page": "options.html"
+    "options_ui": {
+        "page": "options.html"
+    }
 }
